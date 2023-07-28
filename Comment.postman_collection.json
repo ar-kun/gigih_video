@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "dc80d664-1df6-4017-ac33-9cbd2a87ffdd",
+		"name": "Comment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17072912"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/api/comment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/comment",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"videoID\": \"Test-02\",\r\n   \"comment\": \"Coba comment kedua\",\r\n   \"nama\": \"shin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/comment",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/comment/64c33adb4e1e78ebbd7970c8",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"videoID\": \"Test-02\",\r\n   \"comment\": \"Coba comment di update yahh mama\",\r\n   \"nama\": \"shin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/comment/64c33adb4e1e78ebbd7970c8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comment",
+						"64c33adb4e1e78ebbd7970c8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/comment/64c33b3a26f518ed1954e234",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/comment/64c33b3a26f518ed1954e234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comment",
+						"64c33b3a26f518ed1954e234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/comment/64c33b3a26f518ed1954e234",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/comment/64c33b3a26f518ed1954e234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comment",
+						"64c33b3a26f518ed1954e234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/video",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/video",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"video"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
