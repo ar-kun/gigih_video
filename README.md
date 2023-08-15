@@ -23,8 +23,10 @@ SECRET_KEY='xxx';
 ```
 
 replace xxx with valid key
-~ API KEY =
-Go to <a href="https://console.developers.google.com/">https://console.developers.google.com/</a> and enable the YouTube Data API v3 service.
+
+~ API KEY = Go to <a href="https://console.developers.google.com/">https://console.developers.google.com/</a> and enable the YouTube Data API v3 service.
+
+~ Secret key = You can run node generateSecret.js
 
 <div>
 <p>Run the development server:</p>
