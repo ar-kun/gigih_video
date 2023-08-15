@@ -11,7 +11,7 @@ exports.create = (req, res) => {
  comment
   .save(comment)
   .then((data) => {
-   res.send({ message: 'Comment created!' });
+   res.send({ message: 'Comment created!', data: data });
   })
   .catch((err) => {
    res.status(500).send({
@@ -24,7 +24,7 @@ exports.findAll = (req, res) => {
  //  file all comment
  Comment.find()
   .then((data) => {
-   res.send(data);
+   res.send({ message: 'Success get All data comment', data: data });
   })
   .catch((err) => {
    res.status(500).send({
@@ -34,15 +34,19 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
- const id = req.params.id;
+ const videoID = req.params.id;
 
- Comment.findById(id)
-  .then((data) => {
-   if (!data) res.status(404).send({ message: `Not found comment with id ${id}` });
-   else res.send(data);
+ console.log(videoID);
+ Comment.find({ videoID: videoID })
+  .then((comments) => {
+   if (comments.length === 0) {
+    res.status(404).json({ message: `No comments found for video with id ${videoID}` });
+   } else {
+    res.json({ status: 'success', data: comments });
+   }
   })
   .catch((err) => {
-   res.status(500).send({ message: `Error retrieving comment with id=${id}` });
+   res.status(500).json({ status: 'Failed to find comment', message: `Error retrieving comments for video with id ${videoID}` });
   });
 };
 

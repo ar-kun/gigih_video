@@ -17,8 +17,6 @@ app.use(express.json());
 db.mongoose
  .connect(db.url, {
   useNewUrlParser: true,
-  //  useFindAndModify: false,
-  //  useCreateIndex: true,
   useUnifiedTopology: true,
  })
  .then(() => {
@@ -30,8 +28,9 @@ db.mongoose
  });
 
 // Route
-require('./app/routes/comment')(app);
 require('./app/routes/video')(app);
+require('./app/routes/comment')(app);
+require('./app/routes/auth')(app);
 
 const PORT = process.env.PORT || 5000;
 

@@ -3,7 +3,7 @@ module.exports = (app) => {
  const router = require('express').Router();
 
  router.get('/', video.findAll);
- router.get('/:id', video.findOne);
+ router.get('/:videoId', video.findOne);
 
  app.use('/api/video', router);
 };
