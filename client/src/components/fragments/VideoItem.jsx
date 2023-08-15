@@ -4,7 +4,9 @@ import { Input } from '../elements/input/input';
 /* eslint-disable react/prop-types */
 export const CardVideo = ({ children }) => {
  return (
-  <div className="w-full md:w-[40%] lg:w-[30%] break-inside p-6 rounded-xl bg-white dark:bg-slate-800 flex flex-col bg-clip-border">{children}</div>
+  <div className="w-full md:w-[40%] lg:w-[30%] break-inside p-6 rounded-xl  dark:bg-slate-800 flex flex-col bg-clip-border bg-slate-100 justify-between">
+   {children}
+  </div>
  );
 };
 
@@ -35,7 +37,7 @@ const Body = ({ id, title, children }) => {
     <Link to={`/video/${id}`}>{title}</Link>
    </h2>
    <iframe
-    width="560"
+    width="100%"
     height="315"
     src={`https://www.youtube.com/embed/${id}?clip=UgkxOVprsmZ48BA4fIKlq12KjEQsrRlari8U&amp;clipt=EAAYmHU`}
     title="YouTube video player"
@@ -54,7 +56,7 @@ const Footer = () => {
    <Input
     type="text"
     placeholder="Write a comment"
-    className="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20"
+    className="pt-2 pb-2 pl-3 w-full h-11 bg-slate-200 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20"
    />
    <span className="flex gap-2 absolute right-3 top-2/4 -mt-2 items-center ">
     <i className="fa-regular fa-face-smile"></i>
