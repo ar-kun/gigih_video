@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getVideo } from '../services/videoService';
 import { ProfileCard } from '../components/fragments/ProfileCard';
 
-import { addComment, deleteComment, getCommentsById } from '../services/comentService';
+import { addComment, deleteComment, getCommentsById, updateComment } from '../services/comentService';
 
 export const VideoDetailPage = () => {
  const { id } = useParams();
@@ -65,6 +65,28 @@ export const VideoDetailPage = () => {
   }
  };
 
+ const handleEditToggle = (commentId) => {
+  if (commentData.editingId === commentId) {
+   setCommentData({ ...commentData, editingId: null, comment: '' });
+  } else {
+   const commentToEdit = commentsList.find((item) => item.id === commentId);
+   setCommentData({ ...commentData, editingId: commentId, comment: commentToEdit.comment });
+  }
+ };
+
+ const handleEdit = async (commentId, editedComment) => {
+  try {
+   await updateComment(commentId, editedComment, () => {
+    alert('Comment updated successfully');
+    getCommentsById(id, (data) => {
+     setCommentsList(data);
+    });
+   });
+  } catch (error) {
+   console.error('Failed to update comment:', error);
+  }
+ };
+
  return (
   <>
    <div className="mx-16 flex flex-wrap my-28 justify-between bg-white rounded-lg p-5">
@@ -88,7 +110,7 @@ export const VideoDetailPage = () => {
         className="rounded-lg"
        ></iframe>
       </div>
-      <div className="relative w-[20%] flex justify-start flex-col-reverse items-end border border-slate-400 rounded-lg box-border p-5 mr-5 mt-5 shadow-md shadow-slate-400">
+      {/* <div className="relative w-[20%] flex justify-start flex-col-reverse items-end border border-slate-400 rounded-lg box-border p-5 mr-5 mt-5 shadow-md shadow-slate-400">
        <form onSubmit={handleSubmit} className="relative">
         <input
          type="text"
@@ -106,9 +128,57 @@ export const VideoDetailPage = () => {
          commentsList.map((item) => (
           <div key={item.id} className="flex justify-between items-center">
            <p className=" text-black">{item.comment}</p>
+           <button onClick={() => handleEdit(item.id)} className="px-2 py-0 rounded-full bg-red-500 text-white">
+            E
+           </button>
            <button onClick={() => handleDelete(item.id)} className="px-2 py-0 rounded-full bg-red-500 text-white">
             X
            </button>
+          </div>
+         ))}
+       </div>
+      </div> */}
+      <div className="relative w-[20%] flex justify-start flex-col-reverse items-end border border-slate-400 rounded-lg box-border p-5 mr-5 mt-5 shadow-md shadow-slate-400">
+       <form onSubmit={handleSubmit} className="relative">
+        <input
+         type="text"
+         placeholder="Write a comment"
+         className="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20 mt-5"
+         value={commentData.comment}
+         onChange={(e) => setCommentData({ ...commentData, comment: e.target.value })}
+        />
+        <button type="submit" className="absolute top-1/2 right-5">
+         <i className="fa-regular fa-paper-plane"></i>
+        </button>
+       </form>
+       <div className="flex justify-between flex-col w-full gap-5">
+        {commentsList.length > 0 &&
+         commentsList.map((item) => (
+          <div key={item.id} className="flex justify-between items-center">
+           {commentData.editingId === item.id ? (
+            <form
+             onSubmit={(e) => {
+              e.preventDefault();
+              handleEdit(item.id, commentData.comment);
+              setCommentData({ ...commentData, editingId: null, comment: '' });
+             }}
+             className="flex justify-between items-center"
+            >
+             <input
+              type="text"
+              placeholder="Edit your comment"
+              value={commentData.comment}
+              onChange={(e) => setCommentData({ ...commentData, comment: e.target.value })}
+             />
+             <button type="submit">Save</button>
+            </form>
+           ) : (
+            <p className="text-black">{item.comment}</p>
+           )}
+           <div className="flex gap-2">
+            <button onClick={() => handleEditToggle(item.id)}>Edit</button>
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
+           </div>
           </div>
          ))}
        </div>
