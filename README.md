@@ -48,7 +48,7 @@ Get All Video
 
 Route Get : /api/video
 
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -67,7 +67,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 500
 
 ```
@@ -81,7 +81,7 @@ Get One Video
 
 Route Get : /api/video/:videoId
 
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -100,7 +100,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 500
 
 ```
@@ -115,7 +115,7 @@ Status code : 500
 Get All Comment
 Route Get : /api/comment
 
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -134,7 +134,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 500
 
 ```
@@ -147,7 +147,7 @@ Get All Comment with Video id
 
 Route Get : /api/comment/:id
 
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -166,7 +166,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 500
 
 ```
@@ -179,7 +179,7 @@ Status code : 500
 Create comment
 
 Route post : /api/comment
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -196,7 +196,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 500
 
 ```
@@ -209,7 +209,7 @@ Update comment
 
 Route put : /api/comment/:id
 
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -218,7 +218,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 404 || 500
 
 ```
@@ -235,7 +235,7 @@ Update comment
 
 Route delete : /api/comment/:id
 
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -244,7 +244,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 404 || 500
 
 ```
@@ -262,7 +262,7 @@ Status code : 404 || 500
 Auth Login
 Route Get : /api/user/login
 
-~Success Response~
+~ Success Response ~
 Status code : 200
 
 ```
@@ -275,7 +275,7 @@ Status code : 200
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 400 || 500
 
 ```
@@ -291,7 +291,7 @@ Status code : 400 || 500
 Auth Register
 Route Get : /api/user/login
 
-~Success Response~
+~ Success Response ~
 Status code : 201
 
 ```
@@ -300,7 +300,7 @@ Status code : 201
 }
 ```
 
-~Failed Response~
+~ Failed Response ~
 Status code : 400 || 500
 
 ```
